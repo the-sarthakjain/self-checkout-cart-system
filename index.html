@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BillBee Dashboard</title>
+    <!-- +++ ADDED: Favicon Link +++ -->
+    <link rel="icon" type="image/png" href="./BillBee1-removebg-previeww.png">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+</head>
+<body>
+
+    <!-- Screen 1: The Main Dashboard (No Changes) -->
+    <div id="dashboard-screen" class="screen active">
+        <header class="main-header">
+            <div class="header-left">
+                <img src="./BillBee1-removebg-previeww.png" alt="BillBee Logo" class="logo">
+            </div>
+            <div class="header-center">
+                <h1>Welcome To BillBee</h1>
+                <p>Staff Payment Terminal</p>
+            </div>
+            <div class="header-right">
+                <span class="live-indicator"></span> Live
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <p>Active Carts</p>
+                    <h2 id="active-carts-count">0</h2>
+                </div>
+            </section>
+
+            <section id="cart-grid-container" class="cart-grid-container">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Searching for active carts...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Screen 2: The Bill Display (No Changes) -->
+    <div id="bill-display-screen" class="screen">
+        <nav class="bill-navbar">
+            <button id="back-to-dashboard-btn" class="back-button">← Back to Dashboard</button>
+            <div id="bill-header-title" class="bill-header-title"></div>
+        </nav>
+        <main class="bill-content-area">
+            <div class="bill-container">
+                <table>
+                    <thead>
+                        <tr><th>Item</th><th>Price</th><th>Qty</th><th>Total</th></tr>
+                    </thead>
+                    <tbody id="bill-items"></tbody>
+                </table>
+                <footer class="bill-footer">
+                    <div class="total-section">
+                        <h2>Grand Total:</h2>
+                        <span id="grand-total-amount">₹0.00</span>
+                    </div>
+                    <div class="payment-section" id="payment-section">
+                        <!-- The QR Code will be generated here by JavaScript -->
+                    </div>
+                    <div class="action-section">
+                        <button id="payment-complete-btn" class="action-button">Payment Complete & Print Bill</button>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals and Overlays (No Changes) -->
+    <div id="confirmation-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Confirm Action</h3>
+            <p id="modal-text">Are you sure?</p>
+            <div class="modal-actions">
+                <button id="modal-cancel-btn" class="modal-button cancel">Cancel</button>
+                <button id="modal-confirm-btn" class="modal-button confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div id="success-overlay" class="overlay">
+        <div class="checkmark-container">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            <p>Success!</p>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
